@@ -1,0 +1,19 @@
+{
+    "name": "blog_page",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cheerio": "^1.0.0-rc.12",
+        "ejs": "^3.1.10",
+        "express": "^4.19.2"
+    }
+}

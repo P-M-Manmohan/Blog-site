@@ -1,0 +1,10 @@
+<%- include("nav_bar.ejs") %> <% var postId=id %> 
+<% var url="/edit?postId="+postId %>
+<div class="the-blog">
+    <div class="blog-content">
+    <h1 class="blog-title"><%= title %></h1>
+    <p class="body-text"><%= content %></p>
+</div>
+    <div class="edit btn"><a href="<%= url %>">Edit</a></div>
+</div>
+<%- include("footer.ejs") %>

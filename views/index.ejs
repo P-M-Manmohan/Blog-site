@@ -1,0 +1,16 @@
+<%- include("partials/nav_bar.ejs") %>
+<!-- stuff go here  -->
+<% var titles = title %> <% var num=0; %>
+<div class="feeds">
+    <% if (titles.length !=0){ %>
+    <% titles.forEach(function(item){ %> 
+        <% var idValue="feed-"+num; %>
+         <% num++%>
+        <%-include("partials/post.ejs",{title:item, idVal:idValue}) %>
+         <% }) %>
+         <%}else{%>
+            <h3 class="empty"> It's a little empty try writing something...</h3>
+            <% } %>
+</div>
+    
+<%- include("partials/footer.ejs") %>

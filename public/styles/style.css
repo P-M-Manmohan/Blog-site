@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+}
+.radio-canada-big-font {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #f7efe5;
+}
+.container {
+    background-color: #f7efe5;
+}
+.nav-bar {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    background-color: #c3acd0;
+    padding: 20px;
+}
+.title {
+    margin: 0%;
+    width: 50vw;
+}
+.nav-buttons {
+    display: flex;
+
+    align-items: center;
+    width: 50vw;
+}
+.button {
+    margin: 10px 15px;
+}
+
+.profile {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 50vw;
+}
+
+.darkmode {
+    display: flex;
+    width: 50px;
+    height: 20px;
+    background-color: aliceblue;
+    border: solid #f1f1f1;
+    border-radius: 34px;
+    padding: 2px;
+}
+.circle {
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+}
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 2px;
+    object-fit: cover;
+    overflow: hidden;
+}
+.feeds {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.post {
+    width: 50vw;
+    height: 200px;
+    border-radius: 15px;
+    background-color: #7743db;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.inp {
+    margin: 20px;
+}
+.text {
+    width: 90vw;
+    min-height: 50px;
+    border: 0;
+    resize: none;
+}
+
+.blog-title {
+    font-size: 2rem;
+}
+.body-text {
+    font-size: 1.25rem;
+    height: auto;
+    overflow-y: auto;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: end;
+}
+
+.publish {
+    border: 0;
+    border-radius: 50px;
+    background-color: #7743db;
+    padding: 5px;
+}
+.post {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin: 20px;
+}
+
+.post:hover {
+    box-shadow: 0 0 30px #c3acd0;
+}
+
+.btn:hover {
+    box-shadow: 0 0 10px #c3acd0;
+}
+
+.title-text {
+    word-wrap: break-word;
+}
+
+.feeds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.the-blog {
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 60px;
+}
+
+.blog-content {
+    color: #170d2b;
+}
+.edit {
+    align-self: end;
+    width: 30px;
+    padding: 5px;
+    border-radius: 50px;
+    background-color: #7743db;
+}
+
+.empty {
+    color: #c3acd0;
+}
