@@ -1,3 +1,11 @@
+:root{
+    --nav-bg:#c3acd0;
+    --doc-bg: #f7efe5;
+    --button-border: #f1f1f1;
+    --button:#7743db;
+    --text-color:#170d2b;
+}
+
 body {
     margin: 0;
 }
@@ -6,16 +14,16 @@ body {
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-    color: #f7efe5;
+    color: var(--doc-bg);
 }
 html {
-    background-color: #f7efe5;
+    background-color: var(--doc-bg);
 }
 .nav-bar {
     display: flex;
     align-items: center;
     margin: 0;
-    background-color: #c3acd0;
+    background-color: var(--nav-bg);
     padding: 20px;
 }
 .title {
@@ -39,12 +47,12 @@ html {
     width: 50vw;
 }
 
-.darkmode {
+.darkmode-btn {
     display: flex;
     width: 50px;
     height: 20px;
     background-color: aliceblue;
-    border: solid #f1f1f1;
+    border: solid var(--button-border);
     border-radius: 34px;
     padding: 2px;
 }
@@ -53,7 +61,7 @@ html {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: #f1f1f1;
+    background-color: var(--button-border);
 }
 .profile-pic {
     display: flex;
@@ -76,7 +84,7 @@ html {
     width: 50vw;
     height: 200px;
     border-radius: 15px;
-    background-color: #7743db;
+    background-color: var(--button);
 }
 a {
     text-decoration: none;
@@ -95,7 +103,7 @@ a {
     min-height: 50px;
     border: 0;
     resize: none;
-    background-color: #f7efe5;
+    background-color: var(--doc-bg);
 }
 
 .blog-title {
@@ -115,7 +123,7 @@ a {
 .publish {
     border: 0;
     border-radius: 50px;
-    background-color: #7743db;
+    background-color: var(--button);
     padding: 5px;
 }
 .post {
@@ -126,11 +134,11 @@ a {
 }
 
 .post:hover {
-    box-shadow: 0 0 30px #c3acd0;
+    box-shadow: 0 0 30px var(--nav-bg);
 }
 
 .btn:hover {
-    box-shadow: 0 0 10px #c3acd0;
+    box-shadow: 0 0 10px var(--nav-bg);
 }
 
 .title-text {
@@ -152,16 +160,54 @@ a {
 }
 
 .blog-content {
-    color: #170d2b;
+    color: var(--text-color);
 }
 .edit {
     align-self: end;
     width: 30px;
     padding: 5px;
     border-radius: 50px;
-    background-color: #7743db;
+    background-color: var(--button);
 }
 
 .empty {
-    color: #c3acd0;
+    color: var(--nav-bg);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width:40%;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid var(--button);
+    border-radius: 10px;
+
+}
+.card{
+    display: flex;
+    margin-top: 90px;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+}
+
+.user-input{
+    margin:10px;
+    width:40%;
+    border: 2px solid var(--button);
+    border-radius: 10px;
+}
+
+.log-btn{
+    width:20%;
+    border: 0;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-color: var(--button);
+    padding: 5px;
+}
+
+.log-sign{
+    color: #7743db;
 }

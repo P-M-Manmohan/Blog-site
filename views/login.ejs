@@ -1,15 +1,16 @@
-<%- include("partials/nav_bar.ejs") %>
+<%- include("partials/nav_bar.ejs", {location:"../styles/style.css", sun_moon:"../media/svg/icons8-sun.svg"}) %>
 
 <div class="card" >
     
-    <form id="login" method="post">
-        <p>LOGIN</p>
-        <input class="username">
-        <input class="password">
-        <input type="submit" value="login" formaction="/login">
+    <form class="log-sign" id="LogIn" method="post">
+        <p>LOG IN</p>
+        <input class="user-input" id="password">
+        <input class="user-input" id="username">
+        <input class="log-btn" type="submit" value="Log In" formaction="/login">
         
     </form>
 </div>
 
 
-<%- include("/partials/footer.ejs") %>
+
+<%- include("partials/footer.ejs",{script:"../script.js"}) %>

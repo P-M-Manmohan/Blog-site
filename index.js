@@ -13,7 +13,11 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.get("/users/login",(req,res)=>{
-    res.render("partials/login.ejs");
+    res.render("login.ejs");
+});
+
+app.get("/users/signin",(req,res)=>{
+    res.render("signin.ejs");
 });
 
 app.get("/", (req, res) => {
@@ -22,6 +26,7 @@ app.get("/", (req, res) => {
         title: titles,
     });
 });
+
 app.get("/writing", (req, res) => {
     res.render("new_blog.ejs");
 });

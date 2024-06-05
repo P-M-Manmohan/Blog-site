@@ -1,4 +1,4 @@
-<%- include("partials/nav_bar.ejs") %>
+<%- include("partials/nav_bar.ejs",{location:"styles/style.css" , sun_moon:"media/svg/icons8-sun.svg"}) %>
 <div class="content">
     <% if(locals.content && locals.title){%>
         <% var postId= id %>
@@ -51,4 +51,4 @@
     </form>
     <% } %>
 </div>
-<%- include("partials/footer.ejs") %>
+<%- include("partials/footer.ejs",{script:"script.js"}) %>
