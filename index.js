@@ -1,12 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
-import cheerio from "cheerio";
+
 
 const app = express();
 const port = 3000;
 var numberOfSubmits = 0;
 var titles = [];
 var contents = [];
+
+var users=[];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -19,6 +21,12 @@ app.get("/users/login",(req,res)=>{
 app.get("/users/signin",(req,res)=>{
     res.render("signin.ejs");
 });
+
+app.post("/login",(req,res)=>{
+    var userData=req.body;
+    console.log(userData);
+    res.redirect("/");
+})
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {
