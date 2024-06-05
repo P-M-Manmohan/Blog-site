@@ -1,4 +1,4 @@
-<%- include("nav_bar.ejs") %> 
+<%- include("partials/nav_bar.ejs") %>
 
 <div class="card" >
     
@@ -6,10 +6,10 @@
         <p>LOGIN</p>
         <input class="username">
         <input class="password">
-        <input type="submit" formaction="/login">
+        <input type="submit" value="login" formaction="/login">
         
     </form>
 </div>
 
 
-<%- include("footer") %> 
+<%- include("/partials/footer.ejs") %>

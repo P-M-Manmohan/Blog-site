@@ -8,7 +8,7 @@ body {
     font-style: normal;
     color: #f7efe5;
 }
-.container {
+html {
     background-color: #f7efe5;
 }
 .nav-bar {
@@ -95,6 +95,7 @@ a {
     min-height: 50px;
     border: 0;
     resize: none;
+    background-color: #f7efe5;
 }
 
 .blog-title {
