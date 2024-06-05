@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
 
+app.get("/users/login",(req,res)=>{
+    res.render("partials/login.ejs");
+});
+
 app.get("/", (req, res) => {
     res.render("index.ejs", {
         feed: numberOfSubmits,
