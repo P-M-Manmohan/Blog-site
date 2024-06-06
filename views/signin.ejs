@@ -4,8 +4,10 @@
     
     <form class="log-sign" id="SignIn" method="post">
         <p>SIGN IN</p>
-        <input class="user-input" id="password">
-        <input class="user-input" id="username">
+        <input required class="user-input" id="Email" autocomplete="off" placeholder="Email">
+        <input required class="user-input" id="username" autocomplete="off" placeholder="Username">
+        <input required type="password" class="user-input" id="password" autocomplete="off" placeholder="Password">
+        <input required type="password" class="user-input" id="password" autocomplete="off" placeholder=" Confirm Password">
         <input class="log-btn" type="submit" value="Sign in" formaction="/signin">
         
     </form>

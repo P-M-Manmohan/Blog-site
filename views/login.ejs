@@ -4,8 +4,8 @@
     
     <form class="log-sign" id="LogIn" method="post" action="/login">
         <p>LOG IN</p>
-        <input class="user-input" name="username">
-        <input class="user-input" name="password">
+        <input required class="user-input" name="username" autocomplete="off" placeholder="Username">
+        <input required type="password" class="user-input" name="password" autocomplete="off" placeholder="Password">
         <input class="log-btn" type="submit" value="Log In">
         
     </form>

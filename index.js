@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-
+import bcrypt from "bcrypt";
 
 const app = express();
 const port = 3000;
@@ -22,10 +22,35 @@ app.get("/users/signin",(req,res)=>{
     res.render("signin.ejs");
 });
 
-app.post("/login",(req,res)=>{
+app.post("/signin", async (req,res)=>{
     var userData=req.body;
-    console.log(userData);
-    res.redirect("/");
+    try{
+        const hashedPassword= await bcrypt.hash(req.body.password,10);
+        const user={username:req.body.username, password:hashedPassword, email:req.body.email};
+        users.push(user);
+        console.log("registered");
+        res.redirect("/");
+    }
+    catch{
+        console.log("error");
+res.status(500).send();
+    }
+})
+
+app.post("/login", async(req,res)=>{
+    const user=users.find(user=> user.name==req.body.username);
+    if(user==numm){
+        return res.status(400).send("Cannot find user")
+    }
+    try{
+        if(bcrypt.compare(req.body.password,user.password)){
+            res.send('success')
+        }else{
+            res.send("Not allowed")
+        }
+    }catch{
+        res.status(500).send()
+    }
 })
 
 app.get("/", (req, res) => {

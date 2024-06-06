@@ -8,6 +8,8 @@
 
 body {
     margin: 0;
+    height: 100vh;
+    background-color: var(--doc-bg);
 }
 .radio-canada-big-font {
     font-family: "Radio Canada Big", sans-serif;
@@ -16,9 +18,7 @@ body {
     font-style: normal;
     color: var(--doc-bg);
 }
-html {
-    background-color: var(--doc-bg);
-}
+
 .nav-bar {
     display: flex;
     align-items: center;
@@ -32,7 +32,6 @@ html {
 }
 .nav-buttons {
     display: flex;
-
     align-items: center;
     width: 50vw;
 }
@@ -40,30 +39,31 @@ html {
     margin: 10px 15px;
 }
 
-.profile {
+.nav-btn-group{
     display: flex;
     justify-content: end;
     align-items: center;
     width: 50vw;
 }
 
-.darkmode-btn {
+.darkmode-slider {
     display: flex;
     width: 50px;
     height: 20px;
-    background-color: aliceblue;
+    background-color: var(--doc-bg);
     border: solid var(--button-border);
     border-radius: 34px;
     padding: 2px;
 }
-.circle {
+.darkmode-icon {
     align-self: center;
     height: 20px;
     width: 20px;
     border-radius: 50%;
     background-color: var(--button-border);
 }
-.profile-pic {
+
+.profile-pic{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,6 +74,7 @@ html {
     object-fit: cover;
     overflow: hidden;
 }
+
 .feeds {
     display: flex;
     justify-content: center;
@@ -86,6 +87,7 @@ html {
     border-radius: 15px;
     background-color: var(--button);
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -95,9 +97,10 @@ a {
     justify-content: center;
 }
 
-.inp {
+.inp{
     margin: 20px;
 }
+
 .text {
     width: 90vw;
     min-height: 50px;
@@ -173,7 +176,7 @@ a {
 .empty {
     color: var(--nav-bg);
 }
-form{
+.log-sign{
     display: flex;
     flex-direction: column;
     height: 50vh;
@@ -182,6 +185,7 @@ form{
     align-items: center;
     border: 5px solid var(--button);
     border-radius: 10px;
+    color: var(--button);
 
 }
 .card{
@@ -206,8 +210,4 @@ form{
     border-radius: 50px;
     background-color: var(--button);
     padding: 5px;
-}
-
-.log-sign{
-    color: #7743db;
 }
