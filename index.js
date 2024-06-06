@@ -15,21 +15,33 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.get("/users/login",(req,res)=>{
-    res.render("login.ejs");
+    if(inc==3){
+        var msg="Incorrect Credentials";
+        inc=0;
+        res.render("login.ejs",{error:msg});
+    }else{
+        res.render("login.ejs");
+    }
 });
 
 app.get("/users/signin",(req,res)=>{
     if(inc==1){
         var msg="passwords don't match";
         inc=0;
+        res.render("signin.ejs",{error:msg});
     }
     else if(inc==2){
         var msg="username is already taken";
         inc=0;
-    }else{
+        res.render("signin.ejs",{error:msg});
+    }else if(inc==4){
+        var msg="password is too Short";
+        inc=0;
+        res.render("signin.ejs",{error:msg});
+    }
+    else{
         res.render("signin.ejs");
     }
-    res.render("signin.ejs",{error:msg});
 });
 
 app.post("/signin", async (req,res)=>{
@@ -41,11 +53,14 @@ app.post("/signin", async (req,res)=>{
         }else if(users.find(user=> user.username==req.body.username)!=null){
             inc=2;
             res.redirect("/users/signin");
-        }else{
+        }else if(req.body.password.length<8){
+            inc=4;
+            res.redirect("/users/signin");
+        }
+        else{
         const hashedPassword= await bcrypt.hash(req.body.password,10);
         const user={username:req.body.username, password:hashedPassword, email:req.body.email};
         users.push(user);
-        console.log("registered");
         res.redirect("/");
         }
     }
@@ -58,13 +73,15 @@ res.status(500).send();
 app.post("/login", async(req,res)=>{
     const user=users.find(user=> user.username==req.body.username);
     if(user==null){
-        return res.status(400).send("Cannot find user")
+        inc=3;
+        res.redirect("/users/login");
     }
     try{
         if(bcrypt.compare(req.body.password,user.password)){
-            res.send('success')
+            res.redirect("/");
         }else{
-            res.send("Not allowed")
+            inc=3;
+            res.redirect("/users/login");
         }
     }catch{
         res.status(500).send()
