@@ -211,3 +211,7 @@ a {
     background-color: var(--button);
     padding: 5px;
 }
+.error{
+    font-weight: 200;
+    color: red;
+}

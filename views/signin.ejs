@@ -9,6 +9,9 @@
         <input required name="username" class="user-input" id="username" autocomplete="off" placeholder="Username">
         <input required name="password" type="password" class="user-input" id="password" autocomplete="off" placeholder="Password">
         <input required name="confirmPassword" type="password" class="user-input" id="password" autocomplete="off" placeholder=" Confirm Password">
+        <% if(locals.error) {%>
+            <p class="error">*<%=error%></p>
+            <%}%>
         <input class="log-btn" type="submit" value="Sign in">
         
     </form>

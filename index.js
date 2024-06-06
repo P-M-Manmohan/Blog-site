@@ -7,7 +7,7 @@ const port = 3000;
 var numberOfSubmits = 0;
 var titles = [];
 var contents = [];
-
+var inc=0;
 var users=[];
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,17 +19,36 @@ app.get("/users/login",(req,res)=>{
 });
 
 app.get("/users/signin",(req,res)=>{
-    res.render("signin.ejs");
+    if(inc==1){
+        var msg="passwords don't match";
+        inc=0;
+    }
+    else if(inc==2){
+        var msg="username is already taken";
+        inc=0;
+    }else{
+        res.render("signin.ejs");
+    }
+    res.render("signin.ejs",{error:msg});
 });
 
 app.post("/signin", async (req,res)=>{
+    console.log(users)
     var userData=req.body;
     try{
+        if(req.body.password!=req.body.confirmPassword){
+            inc=1;
+            res.redirect("/users/signin");
+        }else if(users.find(user=> user.username==req.body.username)!=null){
+            inc=2;
+            res.redirect("/users/signin");
+        }else{
         const hashedPassword= await bcrypt.hash(req.body.password,10);
         const user={username:req.body.username, password:hashedPassword, email:req.body.email};
         users.push(user);
         console.log("registered");
         res.redirect("/");
+        }
     }
     catch{
         console.log("error");
