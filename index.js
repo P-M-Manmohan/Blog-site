@@ -33,7 +33,6 @@ app.get("/users/signin",(req,res)=>{
 });
 
 app.post("/signin", async (req,res)=>{
-    console.log(users)
     var userData=req.body;
     try{
         if(req.body.password!=req.body.confirmPassword){
