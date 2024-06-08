@@ -26,9 +26,14 @@ body {
     background-color: var(--nav-bg);
     padding: 20px;
 }
-.title {
-    margin: 0%;
+.title-group{
+    display: flex;
+    align-items: center;
     width: 50vw;
+}
+.title {
+    display: inline;
+    margin: 0%;
 }
 .nav-buttons {
     display: flex;
