@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import bcrypt from "bcrypt";
+import axios from "axios";
 
 const app = express();
 const port = 3000;
@@ -9,6 +10,8 @@ var titles = [];
 var contents = [];
 var inc=0;
 var users=[];
+// var LOC_API="https://api.ipgeolocation.io/getip?apiKey=7e0e27d4f9064c10969b780eda18e957";
+var LOC_API="http://ip-api.com/json";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -88,7 +91,10 @@ app.post("/login", async(req,res)=>{
     }
 })
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+    
+    const loc=await axios.get(LOC_API);
+    console.log(loc);
     res.render("index.ejs", {
         feed: numberOfSubmits,
         title: titles,

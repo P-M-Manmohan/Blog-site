@@ -1,4 +1,5 @@
-<%- include("nav_bar.ejs") %> <% var postId=id %> 
+<%- include("nav_bar.ejs", {location:"../styles/style.css", sun_moon:"../media/svg/icons8-sun.svg"}) %>
+<% var postId=id %> 
 <% var url="/edit?postId="+postId %>
 <div class="the-blog">
     <div class="blog-content">
@@ -7,4 +8,4 @@
 </div>
     <div class="edit btn"><a href="<%= url %>">Edit</a></div>
 </div>
-<%- include("footer.ejs") %>
+<%- include("footer.ejs",{script:"../script.js"}) %>
