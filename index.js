@@ -377,13 +377,11 @@ app.post("/login", async(req,res)=>{
 })
 
 app.get("/", async (req, res) => {
-    
+    console.log(req);
     const loc=await axios.get(LOC_API);
-    console.log(loc);
     var lat=loc.data.lat;
     var lon=loc.data.lon;
     const weather_data=await axios.get(WEATHER_API+`latitude=${lat}&longitude=${lon}&current=weather_code`);
-    console.log(weather_data);
     var weather_code=weather_data.data.current.weather_code;
     console.log(wmo_code[weather_code].day.description);
     var icon=wmo_code[weather_code].day.image;
