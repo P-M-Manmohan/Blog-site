@@ -3,7 +3,11 @@
 <div class="card" >
     
     <form class="log-sign" id="LogIn" method="post" action="/login">
-        <p>LOG IN</p>
+        <div class="sign-log-slider">
+        <p class="sign-log-text">LOG IN</p>
+        <p class="sign-log-text">SIGN UP</p>
+
+        </div>
         <input required class="user-input" name="username" autocomplete="off" placeholder="Username">
         <input required type="password" class="user-input" name="password" autocomplete="off" placeholder="Password">
         <% if(locals.error) {%>

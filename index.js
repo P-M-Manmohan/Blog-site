@@ -10,9 +10,9 @@ var titles = [];
 var contents = [];
 var inc=0;
 var users=[];
-// var LOC_API="https://api.ipgeolocation.io/getip?apiKey=7e0e27d4f9064c10969b780eda18e957";
 var LOC_API="http://ip-api.com/json";
 var WEATHER_API="https://api.open-meteo.com/v1/forecast?";
+var icon;
 
 const wmo_code={
 	"0":{
@@ -306,9 +306,9 @@ app.get("/users/login",(req,res)=>{
     if(inc==3){
         var msg="Incorrect Credentials";
         inc=0;
-        res.render("login.ejs",{error:msg});
+        res.render("login.ejs",{error:msg,pic:icon});
     }else{
-        res.render("login.ejs");
+        res.render("login.ejs",{pic:icon});
     }
 });
 
@@ -316,19 +316,19 @@ app.get("/users/signin",(req,res)=>{
     if(inc==1){
         var msg="passwords don't match";
         inc=0;
-        res.render("signin.ejs",{error:msg});
+        res.render("signin.ejs",{error:msg,pic:icon});
     }
     else if(inc==2){
         var msg="username is already taken";
         inc=0;
-        res.render("signin.ejs",{error:msg});
+        res.render("signin.ejs",{error:msg,pic:icon});
     }else if(inc==4){
         var msg="password is too Short";
         inc=0;
-        res.render("signin.ejs",{error:msg});
+        res.render("signin.ejs",{error:msg,pic:icon});
     }
     else{
-        res.render("signin.ejs");
+        res.render("signin.ejs",{pic:icon});
     }
 });
 
@@ -380,20 +380,27 @@ app.get("/", async (req, res) => {
     const loc=await axios.get(LOC_API);
     var lat=loc.data.lat;
     var lon=loc.data.lon;
+	try{
     const weather_data=await axios.get(WEATHER_API+`latitude=${lat}&longitude=${lon}&current=weather_code`);
     var weather_code=weather_data.data.current.weather_code;
-    console.log(wmo_code[weather_code].day.description);
-    var icon=wmo_code[weather_code].day.image;
+    icon=wmo_code[weather_code].day.image;
     // const code=codes.find(code=> codes.==weather_code);
     res.render("index.ejs", {
         feed: numberOfSubmits,
         title: titles,
         pic:icon,
-    });
+    });}
+	catch{
+		res.render("index.ejs", {
+			feed: numberOfSubmits,
+			title: titles,
+			pic:"👍",
+		});
+	}
 });
 
 app.get("/writing", (req, res) => {
-    res.render("new_blog.ejs");
+    res.render("new_blog.ejs",{pic:icon});
 });
 
 app.get("/post", (req, res) => {
@@ -402,6 +409,7 @@ app.get("/post", (req, res) => {
         title: titles[post],
         content: contents[post],
         id: post,
+		pic:icon,
     });
 });
 
@@ -411,6 +419,7 @@ app.get("/edit", (req, res) => {
         title: titles[editNumber],
         content: contents[editNumber],
         id: editNumber,
+		pic:icon,
     });
 });
 

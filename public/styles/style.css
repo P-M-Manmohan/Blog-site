@@ -188,11 +188,23 @@ a {
     width:40%;
     justify-content: center;
     align-items: center;
-    border: 5px solid var(--button);
+    background-color:  var(--nav-bg);
     border-radius: 10px;
     color: var(--button);
 
 }
+.sign-log-slider{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: var(--doc-bg);
+    border-radius: 90px;
+    font-size: 24px;
+}
+.sign-log-text{
+    margin:20px;
+}
+
 .card{
     display: flex;
     margin-top: 90px;
