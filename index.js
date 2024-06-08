@@ -377,7 +377,6 @@ app.post("/login", async(req,res)=>{
 })
 
 app.get("/", async (req, res) => {
-    console.log(req);
     const loc=await axios.get(LOC_API);
     var lat=loc.data.lat;
     var lon=loc.data.lon;
