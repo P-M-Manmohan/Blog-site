@@ -7,6 +7,15 @@ function openPost(ele){
     window.location.href = "/post?" + post;
 };
 
+function checkLoggedOn(){
+    const logged=window.location.href = "/check";
+    if(logged=='true'){
+        return 1
+    }else{
+        return 0
+    }
+}
+
 async function dayNightIcon() {
     var response = await fetch("/icon");
     var data = await response.json();

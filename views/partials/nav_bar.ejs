@@ -1,10 +1,10 @@
 <%- include("header.ejs") %>
 
 <div class="container">
-    <div class="nav-bar">
+    <div class="nav-bar" onload="checkLoggedOn()">
         <div class="title-group">
             <h1 class="title">Our blog</h1>
-            <img class="weather-icon" src="" height="50">
+            <img class="weather-icon" height="50">
         </div>
 
         <div class="nav-btn-group">
@@ -20,12 +20,16 @@
                     <img src="<%=icon%>" height="20px" />
                 </div>
             </div>
-            <div class="login-btn button">
+            <% if(locals.logged){ %>
+                <div><p><%= logged.username %></p></div>
+                <%}else{%>
+            <div class="login-btn button" visibility="hidden">
                 <a href="/login">Log In</a>
             </div>
             <div class="signin-btn button">
                 <a href="/signup">Sign Up</a>
             </div>
+            <% } %>
             <!-- <div class="button profile-pic">
                 <img src="media/images/image.png" height="50px" />
             </div> -->

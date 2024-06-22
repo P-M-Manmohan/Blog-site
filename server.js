@@ -26,12 +26,17 @@ app.get("/icon", async(req,res)=>{
 })
 
 
-app.get("/", async (req, res) => {
+app.get("/", checkIfAuthorized, async (req, res) => {
     try{
+        var user;
+        if(req.user){
+            user=req.user;
+        }
         const result=await axios.get(API+`/content`);
         res.render("index.ejs", {
         feed: result.data.length,
         title: result.data,
+        logged:user,
     });}
 	catch{
 		res.sendStatus(500);
@@ -42,6 +47,10 @@ app.get("/", async (req, res) => {
 app.get("/post",checkIfAuthorized, async (req,res)=>{
     try{
         var canEdit;
+        var user;
+        if(req.user){
+            user=req.user;
+        }
         const result=await axios.get(API+`/blog/${req.query.post}`);
         if(req.user?.id==result.data.userid){
             canEdit=1;
@@ -54,6 +63,7 @@ app.get("/post",checkIfAuthorized, async (req,res)=>{
             content:result.data.content,
             isAuthorized:canEdit,
             name:result.data.username,
+            logged:user,
         })
     }
     catch{
@@ -117,7 +127,13 @@ app.post("/users/signup", async (req,res)=>{
 })
 
 app.get("/writing",restrictToLoggedInUserOnly,(req,res)=>{
-    res.render("new_blog.ejs");
+    var user;
+        if(req.user){
+            user=req.user;
+        }
+    res.render("new_blog.ejs",{
+        logged:user,
+    });
 })
 
 app.post("/submit",restrictToLoggedInUserOnly,async(req,res)=>{
@@ -139,6 +155,10 @@ app.post("/submit",restrictToLoggedInUserOnly,async(req,res)=>{
 })
 
 app.get("/edit", checkIfAuthorized,async (req, res) => {
+    var user;
+    if(req.user){
+        user=req.user;
+    }
     const result=await axios.get(API+`/blog/${req.query.postId}`);
     var content;
     if(req.user?.id==result.data.userid){
@@ -146,10 +166,14 @@ app.get("/edit", checkIfAuthorized,async (req, res) => {
             title:result.data.title,
             content:result.data.content,
             id:req.query.postId,
+            logged:user,
+
         }
     }
     res.render("new_blog.ejs", {
         editContent:content,
+        logged:user,
+
     });
 });
 
