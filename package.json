@@ -1,22 +1,26 @@
 {
-    "name": "blog_page",
-    "version": "1.0.0",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "description": "",
-    "dependencies": {
-        "axios": "^1.7.2",
-        "bcrypt": "^5.1.1",
-        "body-parser": "^1.20.2",
-        "cheerio": "^1.0.0-rc.12",
-        "ejs": "^3.1.10",
-        "express": "^4.19.2",
-        "fs": "^0.0.1-security"
-    }
+  "name": "refactor",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Manmohan",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "pg": "^8.12.0",
+    "uuid": "^10.0.0"
+  }
 }

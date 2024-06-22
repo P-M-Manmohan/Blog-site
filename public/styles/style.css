@@ -170,11 +170,18 @@ a {
 .blog-content {
     color: var(--text-color);
 }
+
 .edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: end;
     width: 30px;
+    height: 25px;
     padding: 5px;
     border-radius: 50px;
+    margin:5px;
+    width:50px;
     background-color: var(--button);
 }
 
@@ -228,6 +235,38 @@ a {
     background-color: var(--button);
     padding: 5px;
 }
+
+.author{
+    color: var(--text-color);
+    align-self: end;
+}
+
+.delete-btn{
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: red;
+  border: 0;
+  height:30px;
+  border-radius: 50px;
+  padding: 5px;
+  margin:5px;
+}
+
+input[type='submit']{
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--doc-bg);
+}
+
+.btn-group{
+    display: flex;
+    align-self: end;
+    height: 40px;
+    justify-content: center;
+}
+
 .error{
     font-weight: 200;
     color: red;

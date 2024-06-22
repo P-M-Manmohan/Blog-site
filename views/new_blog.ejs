@@ -1,8 +1,7 @@
-<%- include("partials/nav_bar.ejs",{location:"styles/style.css" , sun_moon:"media/svg/icons8-sun.svg"}) %>
+<%- include("partials/nav_bar.ejs",{sun_moon:"media/svg/icons8-sun.svg"}) %>
 <div class="content">
-    <% if(locals.content && locals.title){%>
-        <% var postId= id %>
-        <form action="/submit?new=0&id=<%= postId%>" method="POST" class="new-post">
+    <% if(locals.editContent){%>
+        <form action="/submit?new=0&id=<%= editContent.id %>" method="POST" class="new-post">
             <div class="inp">
                 <textarea
                     class="text blog-title"
@@ -10,7 +9,7 @@
                     name="title"
                     placeholder="Title"
                     onkeyup="adjustHeight(this)"
-                ><%= title %></textarea>
+                ><%= editContent.title %></textarea>
             </div>
             <div class="text-body inp">
                 <textarea
@@ -19,7 +18,7 @@
                     name="content"
                     placeholder="Enter text here"
                     onkeyup="adjustHeight(this)"
-                ><%= content %></textarea>
+                ><%= editContent.content %></textarea>
             </div>
             <div class="submit-btn inp">
                 <input class="publish radio-canada-big-font btn" type="submit" value="Publish" />

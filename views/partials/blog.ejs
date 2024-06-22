@@ -1,11 +1,21 @@
-<%- include("nav_bar.ejs", {location:"../styles/style.css", sun_moon:"../media/svg/icons8-sun.svg"}) %>
+<%- include("nav_bar.ejs", {sun_moon:"../media/svg/icons8-sun.svg"}) %>
 <% var postId=id %> 
 <% var url="/edit?postId="+postId %>
+<% var urlDelete="/delete?postId="+postId %>
 <div class="the-blog">
     <div class="blog-content">
     <h1 class="blog-title"><%= title %></h1>
     <p class="body-text"><%= content %></p>
 </div>
+<% var canEdit=isAuthorized %>
+<% if (isAuthorized==1) {%>
+    <div class="btn-group">
     <div class="edit btn"><a href="<%= url %>">Edit</a></div>
+            <form action="<%= urlDelete %>" method="post">
+                <input class=" delete-btn btn" type="submit" value="Delete" />
+            </form> </div>
+<% }else{ %>
+    <div class="author"><p>By, <%= name %></p></div>
+    <% } %>
 </div>
-<%- include("footer.ejs",{script:"../script.js"}) %>
+<%- include("footer.ejs") %>

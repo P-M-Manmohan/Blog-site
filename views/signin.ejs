@@ -1,8 +1,8 @@
-<%- include("partials/nav_bar.ejs", {location:"../styles/style.css", sun_moon:"../media/svg/icons8-sun.svg"}) %>
+<%- include("partials/nav_bar.ejs", {sun_moon:"../media/svg/icons8-sun.svg"}) %>
 
 <div class="card" >
     
-    <form class="log-sign" id="SignIn" method="post" action="/signin">
+    <form class="log-sign" id="SignIn" method="post" action="/users/signup">
         <div class="sign-log-slider">
         <p class="sign-log-text">LOG IN</p>
         <p class="sign-log-text">SIGN UP</p>
@@ -20,4 +20,4 @@
 </div>
 
 
-<%- include("partials/footer.ejs",{script:"../script.js"}) %>
+<%- include("partials/footer.ejs") %>
