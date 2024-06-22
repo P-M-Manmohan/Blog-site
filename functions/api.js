@@ -19,7 +19,7 @@ const db = new pg.Client({
 db.connect();
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 
 var LOC_API="http://ip-api.com/json";
@@ -32,7 +32,7 @@ app.use(express.json());
 
 app.get("/location/:ip", async (req,res)=>{
 try{
-    const location = await axios.get(LOC_API+`/2401:4900:6317:6da8:6d14:fc18:efee:57e3`);
+    const location = await axios.get(LOC_API+`/${req.params.ip}`);
     const weather= await axios.get(WEATHER_API+`latitude=${location.data.lat}&longitude=${location.data.lon}&current=weather_code`);
     var weather_code=weather.data.current.weather_code;
     const icon=wmo_code[weather_code];

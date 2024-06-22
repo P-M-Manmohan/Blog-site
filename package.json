@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "init-assets": "node api.js",
+    "init-server": "node app.js",
+    "start": "npm run init-assets && npm run init-server"
   },
   "keywords": [],
   "author": "Manmohan",

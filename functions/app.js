@@ -2,13 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 import {v4 as uuidv4} from "uuid";
-import { setUser } from "./service/auth.js";
+import { setUser } from "../service/auth.js";
 import cookieParser from "cookie-parser";
-import { restrictToLoggedInUserOnly, checkIfAuthorized } from "./middlewares/auth.js";
+import { restrictToLoggedInUserOnly, checkIfAuthorized } from "../middlewares/auth.js";
 
 const app = express();
-const port = 3000;
-const API="http://localhost:4000"
+const port = process.env.PORT || 3000;
+const API= process.env.API || "http://localhost:4000"
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -17,7 +17,7 @@ app.use(cookieParser())
 
 app.get("/icon", async(req,res)=>{
     try{
-        const weather=await axios.get(API+`/location/127.`);
+        const weather=await axios.get(API+`/${req.ip.slice(7)}`);
         const icon=weather;
         res.send(icon.data);
     }catch(err){
