@@ -1,0 +1,38 @@
+<%- include("header.ejs") %>
+
+<div class="container">
+    <div class="nav-bar" onload="checkLoggedOn()">
+        <div class="title-group">
+            <h1 class="title">Our blog</h1>
+            <img class="weather-icon" height="50">
+        </div>
+
+        <div class="nav-btn-group">
+            <div class="feed button">
+                <a href="/">My Feed</a>
+            </div>
+            <div class="button write">
+                <a href="/post/new">Write</a>
+            </div>
+            <div class="button darkmode-slider">
+                <div class="darkmode-icon">
+                    <%let icon=sun_moon%>
+                    <img src="<%=icon%>" height="20px" />
+                </div>
+            </div>
+            <% if(locals.logged){ %>
+                <div><p><%= logged.username %></p></div>
+                <%}else{%>
+            <div class="login-btn button" visibility="hidden">
+                <a href="/user/login">Log In</a>
+            </div>
+            <div class="signin-btn button">
+                <a href="/user/signup">Sign Up</a>
+            </div>
+            <% } %>
+            <!-- <div class="button profile-pic">
+                <img src="media/images/image.png" height="50px" />
+            </div> -->
+        </div>
+    </div>
+

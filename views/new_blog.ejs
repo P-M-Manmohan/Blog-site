@@ -1,0 +1,53 @@
+<%- include("partials/nav_bar.ejs",{sun_moon:"media/svg/icons8-sun.svg"}) %>
+<div class="content">
+    <% if(locals.editContent){%>
+        <form action="/post/submit?new=0&id=<%= editContent.id %>" method="POST" class="new-post">
+            <div class="inp">
+                <textarea
+                    class="text blog-title"
+                    type="text"
+                    name="title"
+                    placeholder="Title"
+                    onkeyup="adjustHeight(this)"
+                ><%= editContent.title %></textarea>
+            </div>
+            <div class="text-body inp">
+                <textarea
+                    class="text body-text"
+                    type="text"
+                    name="content"
+                    placeholder="Enter text here"
+                    onkeyup="adjustHeight(this)"
+                ><%= editContent.content %></textarea>
+            </div>
+            <div class="submit-btn inp">
+                <input class="publish radio-canada-big-font btn" type="submit" value="Publish" />
+            </div>
+        </form>
+    <% }else{ %>
+    <form action="/post/submit?new=1" method="POST" class="new-post">
+        <div class="inp">
+            <textarea
+                class="text blog-title"
+                type="text"
+                name="title"
+                placeholder="Title"
+                onkeyup="adjustHeight(this)"
+            ></textarea>
+        </div>
+        <div class="text-body inp">
+            <textarea
+                class="text body-text"
+                type="text"
+                name="content"
+                placeholder="Enter text here"
+                onkeyup="adjustHeight(this)"
+            ></textarea>
+        </div>
+        <div class="submit-btn inp">
+            <input class="publish radio-canada-big-font btn" type="submit" value="Publish" />
+        </div>
+    </form>
+    <% } %>
+</div>
+<%- include("partials/footer.ejs",{script:"script.js"}) %>

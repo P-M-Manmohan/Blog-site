@@ -12,7 +12,16 @@ function getUser(id){
     return sessionIdToUserMap.get(id)
 }
 
+function canEdit(id,userId){
+    if(id==userId){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 export{
     setUser,
     getUser,
+    canEdit,
 };

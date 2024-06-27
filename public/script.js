@@ -4,22 +4,22 @@ function openPost(ele){
     var id = ele.id;
     console.log(id)
     var post = $.param({ post: id});
-    window.location.href = "/post?" + post;
+    window.location.href = "/post/open?" + post;
 };
 
 async function dayNightIcon() {
-    var response = await fetch("/icon");
+    var response = await fetch("/api/icon");
     var data = await response.json();
     var d=new Date();
-    let hour=d.getHours();
+    const hour=d.getHours();
     var img;
     if(hour=>6 && hour<18){
         img=data.day.image;
     }else{
         img=data.night.image;
     }
-    console.log(img)
     $(".weather-icon").attr("src",img)
+    
 }
    
 

@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init-assets": "node api.js",
-    "init-server": "node app.js",
-    "start": "npm run init-assets && npm run init-server"
+    "init-server": "node server.js",
+    "start": "npm run init-server"
   },
   "keywords": [],
   "author": "Manmohan",
@@ -23,6 +22,7 @@
     "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "pg": "^8.12.0",
+    "pg-pool": "^3.6.2",
     "uuid": "^10.0.0"
   }
 }
