@@ -4,9 +4,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "init-server": "node server.js",
-    "start": "npm run init-server"
+    "start": "node server.js" 
   },
   "keywords": [],
   "author": "Manmohan",
@@ -24,5 +22,8 @@
     "pg": "^8.12.0",
     "pg-pool": "^3.6.2",
     "uuid": "^10.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
