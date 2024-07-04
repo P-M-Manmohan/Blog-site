@@ -1,7 +1,7 @@
 {
   "name": "refactor",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js" 
@@ -24,6 +24,6 @@
     "uuid": "^10.0.0"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "14.x"
   }
 }

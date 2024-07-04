@@ -8,7 +8,6 @@ import weatherRoute from "./routes/API.js"
 
 const app = express();
 const port = process.env.PORT || 3000;
-const API= process.env.API || "http://localhost:4000"
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
